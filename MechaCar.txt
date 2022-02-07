@@ -1,0 +1,230 @@
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.77 (8007) x86_64-apple-darwin17.0]
+
+[Workspace restored from /Users/michael/.RData]
+[History restored from /Users/michael/.Rapp.history]
+
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> ### DELIVERABLE 1 ###
+> # Import the data
+> mecha_car_mpg <- read.csv(file='MechaCar_mpg.csv',check.names = F, stringsAsFactors = F)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'MechaCar_mpg.csv': No such file or directory
+> 
+> # Perform linear regression that predicts the mpg of MechaCar prototypes
+> lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, mecha_car_mpg)
+Error in is.data.frame(data) : object 'mecha_car_mpg' not found
+> summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, mecha_car_mpg))
+Error in is.data.frame(data) : object 'mecha_car_mpg' not found
+> mecha_car_mpg <- read.csv(file='MechaCar_mpg.csv',check.names = F, stringsAsFactors = F)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'MechaCar_mpg.csv': No such file or directory
+> read.csv(file='/Users/michael/Desktop/MechaCar_mpg.csv')
+   vehicle_length vehicle_weight spoiler_angle ground_clearance AWD      mpg
+1        14.69710       6407.946      48.78998        14.640983   1 49.04918
+2        12.53421       5182.081      90.00000        14.366679   1 36.76606
+3        20.00000       8337.981      78.63232        12.253711   0 80.00000
+4        13.42849       9419.671      55.93903        12.989359   1 18.94149
+5        15.44998       3772.667      26.12816        15.103963   1 63.82457
+6        14.45357       7286.595      30.58568        13.106953   0 48.54268
+7        14.10599       4989.992      84.27743         9.371836   0 36.39513
+8        15.45398       5429.760      75.32817        16.190957   1 63.05322
+9        14.52506       7122.962      67.76457        11.230907   1 27.20300
+10       15.47860       5554.791      56.90882        10.921334   1 48.12008
+11       14.76931       5683.381      38.83529        12.231921   0 32.55047
+12       14.31984       5981.229      81.64859        12.972264   0 50.34986
+13       14.68376       6303.183      62.37546        11.636574   0 39.16441
+14       14.12852      10000.000      59.64194        13.125749   1 43.51063
+15       18.59062       4182.724      55.48771        14.459680   0 59.15592
+16       12.88955       5574.425      66.37692        15.072536   1 42.41892
+17       15.11266       4943.257      38.31901        15.158800   1 46.50623
+18       12.91614       7722.624      50.32062        11.640040   0 31.45088
+19       13.27291       7605.956      60.33572        17.731068   0 55.44374
+20       12.36809       3246.389      69.03763        14.306149   0 38.72442
+21       18.06819       3953.396      67.57736        13.160739   0 70.73307
+22       14.99541       5858.383      66.44288         8.802440   1 37.86970
+23       12.58444       7052.962      63.41534         9.578795   1 10.00000
+24       14.45503       5674.915      89.76752         9.723295   0 29.98104
+25       13.60483       3841.697      65.70445        11.044194   1 24.16231
+26       16.41548       2000.000      68.84479         8.620655   1 25.34868
+27       18.35135       2934.917      68.74393         9.803953   1 69.36129
+28       15.82988       3470.406      46.50228        14.386296   0 47.79270
+29       13.53728       9450.387      50.97371        14.814077   1 47.81199
+30       12.46096       4691.651      44.06756        13.568435   0 26.56352
+31       14.73256       6701.508      73.10157        12.109994   0 41.69385
+32       16.96734       6155.749      58.31362        11.287275   1 51.80616
+33       18.07294       6203.635      76.88427        11.591889   1 43.19019
+34       12.74533       9671.599      78.30310        14.507314   0 51.24755
+35       16.05539       4491.870      59.46005         9.104129   1 28.30198
+36       12.00000       6255.318       0.00000        18.000000   0 41.05162
+37       13.67225       8129.072      85.78628        12.629416   0 43.29014
+38       13.23373       5876.151      23.92351        12.144043   1 25.13951
+39       13.25051       5405.188      47.78468         9.773404   0 32.26039
+40       16.83809       5862.235      56.14336        16.403553   1 73.28485
+41       13.78198       6409.311      40.02585        13.560939   1 36.96890
+42       17.52585       5404.056      58.77936        13.310631   0 49.67550
+43       19.73430       7711.498      20.54341        10.358993   1 63.46681
+44       16.55918       8354.279      50.59282        12.338203   1 67.76351
+45       14.13565       4438.014      85.16064        14.745929   0 56.80763
+46       15.64368       8854.568      27.67402        14.758095   0 74.71472
+47       13.67633       8679.591      43.68506        14.030788   0 48.69874
+48       19.17453       7577.647      57.84327         6.000000   0 55.93975
+49       14.33405       5296.306      54.49772        16.971517   0 40.58563
+50       15.36573       6553.449      28.55171        10.067357   1 29.74725
+> mecha_car_mpg <- read.csv(file='/Users/michael/Desktop/MechaCar_mpg.csv',check.names = F, stringsAsFactors = F)
+> # Perform linear regression that predicts the mpg of MechaCar prototypes
+> lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, mecha_car_mpg)
+
+Call:
+lm(formula = mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
+    ground_clearance + AWD, data = mecha_car_mpg)
+
+Coefficients:
+     (Intercept)    vehicle_length    vehicle_weight     spoiler_angle  
+      -1.040e+02         6.267e+00         1.245e-03         6.877e-02  
+ground_clearance               AWD  
+       3.546e+00        -3.411e+00  
+
+> summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, mecha_car_mpg))
+
+Call:
+lm(formula = mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
+    ground_clearance + AWD, data = mecha_car_mpg)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.4701  -4.4994  -0.0692   5.4433  18.5849 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -1.040e+02  1.585e+01  -6.559 5.08e-08 ***
+vehicle_length    6.267e+00  6.553e-01   9.563 2.60e-12 ***
+vehicle_weight    1.245e-03  6.890e-04   1.807   0.0776 .  
+spoiler_angle     6.877e-02  6.653e-02   1.034   0.3069    
+ground_clearance  3.546e+00  5.412e-01   6.551 5.21e-08 ***
+AWD              -3.411e+00  2.535e+00  -1.346   0.1852    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.774 on 44 degrees of freedom
+Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
+F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
+
+> ### DELIVERABLE 2 ###
+> # Import the data
+> sus_coil <- read.csv(file='/Users/michael/Desktop/Suspension_Coil.csv', check.names = F, stringsAsFactors = F)
+> # Create a summary data frame
+> total_summary <- sus_coil %>% summarize(Mean = mean(PSI), Median = median(PSI), Variance = var(PSI), SD = sd(PSI))
+> # Create a summary data frame grouped by Manufacturing Lot
+> lot_summary <- sus_coil %>% group_by(Manufacturing_Lot) %>% summarize(Mean = mean(PSI), Median = median(PSI),Variance = var(PSI), SD = sd(PSI))
+> 
+> 
+> ### DELIVERABLE 3 ###
+> # Determine if the PSI across all manufacturing lots is statistically different from the population mean of 1,500 pounds per square inch
+> t.test(sus_coil$PSI, mu = 1500)
+
+	One Sample t-test
+
+data:  sus_coil$PSI
+t = -1.8931, df = 149, p-value = 0.06028
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1497.507 1500.053
+sample estimates:
+mean of x 
+  1498.78 
+
+> # Determine if the PSI for each manufacturing lot is statistically different from the population mean of 1,500 pounds per square inch
+> Lot1 = subset(sus_coil, Manufacturing_Lot == 'Lot1')
+> Lot2 = subset(sus_coil, Manufacturing_Lot == 'Lot2')
+> Lot3 = subset(sus_coil, Manufacturing_Lot == 'Lot3')
+> 
+> t.test(Lot1$PSI, mu = 1500) 
+
+	One Sample t-test
+
+data:  Lot1$PSI
+t = 0, df = 49, p-value = 1
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.719 1500.281
+sample estimates:
+mean of x 
+     1500 
+
+> 
+> t.test(Lot2$PSI, mu = 1500)
+
+	One Sample t-test
+
+data:  Lot2$PSI
+t = 0.51745, df = 49, p-value = 0.6072
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.423 1500.977
+sample estimates:
+mean of x 
+   1500.2 
+
+> 
+> t.test(Lot3$PSI, mu = 1500)
+
+	One Sample t-test
+
+data:  Lot3$PSI
+t = -2.0916, df = 49, p-value = 0.04168
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1492.431 1499.849
+sample estimates:
+mean of x 
+  1496.14 
+
+> 
+2022-02-06 17:01:13.186 R[89786:4904088] +[NSSavePanel _warmUp] attempted warmup
+> 
+> # deliverable 2 df
+> total_summary
+     Mean Median Variance       SD
+1 1498.78   1500 62.29356 7.892627
+> lot_summary
+# A tibble: 3 × 5
+  Manufacturing_Lot  Mean Median Variance     SD
+  <chr>             <dbl>  <dbl>    <dbl>  <dbl>
+1 Lot1              1500   1500     0.980  0.990
+2 Lot2              1500.  1500     7.47   2.73 
+3 Lot3              1496.  1498.  170.    13.0  
+> 
